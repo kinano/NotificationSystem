@@ -1,0 +1,17 @@
+{
+    "name": "NotificationSystem",
+    "description": "Team Notification System",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "Team",
+        "Notification"
+    ],
+    "homepage": "https://github.com/kinano/NotificationSystem",
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "2.2.8",
+        "doctrine/doctrine-orm-module": "0.*",
+        "doctrine/common": ">=2.1",
+        "doctrine/migrations": "1.0.*@dev"
+    }
+}

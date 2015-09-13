@@ -15,7 +15,6 @@ We would like to build a notification system for when a user comments on somethi
 * The system for creating teams, team members/leaders and assigning members to team(s) and assigning leader(s) to team(s) is already in place. We will just simulate this system by the tables in the DB. 
 
 # Open questions:
-* I am a team member and I comment on something, should I get notified of this comment similarly to my other team members or should I be excluded since I know that I just made the comment?
 * Decide on the best platform/technology to use 
 * Performance considerations
 
