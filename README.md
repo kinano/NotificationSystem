@@ -36,3 +36,4 @@ This repo is a customized fork of the following repo https://github.com/Gianluca
 * Run the Node.js server: ``` node server.js```
 * Navigate to the following URL: http://localhost:8000/NotificationSystem
 The web page will display the comments that have pending notifications.
+* The current design only displays the notifications on the connected clients/browsers. I will fine tune to play with notifying users soon. 
