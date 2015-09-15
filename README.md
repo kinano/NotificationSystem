@@ -1,5 +1,6 @@
 # NotificationSystem
-Rough draft for a notification system for teams:
+Rough draft for a notification system for teams. 
+This is a fork from Gianluca Guarini's repo: https://github.com/GianlucaGuarini/nodejs-MySQL-push-notifications-demo
 
 There is a table of users, a table of teams, and a join table of users to teams, which also has flag of whether the user in the team is a leader of the team.
 
