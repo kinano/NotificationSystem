@@ -34,6 +34,7 @@
 
         $.each(data.records,function(index,record){
             recordsList += "<dt> Comment id:" + record.comment_id + "</dt>\n" +
+                         "<dd> Notification ID:"    + record.notification_id    + "\n" +
                          "<dd> Comment:"    + record.comment    + "\n" +
                          "<dd> Commentor record id:" + record.commentor_user_id + "\n" +
                          "<dd> Commentor first_name:" + record.commentor_first_name + "\n" +
@@ -45,8 +46,7 @@
                          "<dd> Recipient first name: " + record.recipient_first_name + "\n" +
                          "<dd> Recipient last name: " + record.recipient_last_name + "\n" +
                          "<dd> Recipient email: " + record.recipient_email + "\n" +
-                         "<dd> Is the recipient a team leader? " + record.is_recipient_team_leader + "\n" +
-                         "<dd> Should we notify the recipient? " + record.notify_recipient + "\n" +
+                         "<dd> Is the recipient a team leader? " + record.is_recipient_team_leader + "\n" +                      
                          "</dd>";
         });
         recordsList += "</dl>";

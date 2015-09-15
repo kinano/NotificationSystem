@@ -5,9 +5,7 @@ SELECT * FROM team_users;
 -- User 1 comment is public. User 1 is part of team 1 => All team 1 users should get notified except for user 1
 -- TEAM 1 and team 4 should get the notification for comment 1
 -- 
-
+select * from user_comment_notifications;
 call get_pending_notifications;
 
-truncate table user_comments;
-
-update user_comments set notification_sent_at = now() where id = 1;
+update user_comment_notifications set sent_at = null where id > 0;
