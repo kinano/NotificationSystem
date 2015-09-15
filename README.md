@@ -1,16 +1,13 @@
 # NotificationSystem
-Rough draft for a notification system for teams. 
-This is a fork from Gianluca Guarini's repo: https://github.com/GianlucaGuarini/nodejs-MySQL-push-notifications-demo
-
 There is a table of users, a table of teams, and a join table of users to teams, which also has flag of whether the user in the team is a leader of the team.
 
 We would like to build a notification system for when a user comments on something. The system will notify the rest of the team members when the comment is public, and only the leader when the comment is private.
 
-# Big Thanks
-This repo is a customized fork of the following repo https://github.com/GianlucaGuarini/nodejs-MySQL-push-notifications-demo
+This repo shows a rough draft for a notification system for teams. 
+I customized existing code from Gianluca Guarini's repo: https://github.com/GianlucaGuarini/nodejs-MySQL-push-notifications-demo
 
 # Assumptions:
-* We may need to support any notification mechanism(email, sms, push, social media...etc). 
+* We may need to support any notification mechanism(email, sms, push to web apps, social media...etc). 
 * Team leaders will always be notified of the comment(s).
 * Team members will only be notified of public comments. 
 * The comments system is already in place and will store the data in a dedicated comments table. 
@@ -19,7 +16,7 @@ This repo is a customized fork of the following repo https://github.com/Gianluca
 
 # Platform:
 * I decided to use Node.JS to fetch the notifications from the DB and display them in realtime on connected clients given how ubiquitous node.js is. 
-* I am using socket.io and mysql modules. 
+* Has a dependency on socket.io and mysql modules. 
 
 # Out of scope:
 * For this draft/design, editing existing comments does not trigger any notifications.
@@ -32,7 +29,7 @@ This repo is a customized fork of the following repo https://github.com/Gianluca
 ** mysql: ```npm install mysql```
 * Configure a MySQL database on your local machine
 * Run [the following script](sql/create_db.sql) as root on your MySQL database
-  Note that a new user will be created on the database: notification_sys
+  Node.js uses the following user: notification_sys to connect to MySQL
 * Run the Node.js server: ``` node server.js```
 * Navigate to the following URL: http://localhost:8000/NotificationSystem
 The web page will display the comments that have pending notifications.
