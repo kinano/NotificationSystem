@@ -58,6 +58,7 @@ CREATE PROCEDURE `get_pending_notifications`()
 BEGIN
 	select
 		comments.id "comment_id",
+        comments.comment "comment",
 		commentors.id "commentor_user_id",
         commentors.first_name "commentor_first_name",
         commentors.last_name "commentor_last_name",

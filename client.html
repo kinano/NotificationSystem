@@ -1,21 +1,23 @@
 <html>
 	<head>
-		<title>Push notification server streaming on a MySQL db</title>
+		<title>Notification System</title>
 		<style>
+      body{
+        font-family: verdana;
+      }      
 			dd,dt {
 				float:left;
 				margin:0;
 				padding:5px;
 				clear:both;
 				display:block;
-				width:100%;
-
+				width:100%;        
 			}
 			dt {
 				background:#ddd;
 			}
 			time {
-				color:gray;
+				color:red;
 			}
 		</style>
 	</head>
@@ -24,24 +26,31 @@
         <div id="container">Fetching notifications ...</div>
     <script src="socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script>
-
-        // create a new websocket
+    <script>      
         var socket = io.connect('http://localhost:8000');
-        // on message received we print all the data inside the #container div
+        // When we get new data from the server, update the client view:
         socket.on('notification', function (data) {
-        var usersList = "<dl>";
-        console.log("Number of rows: "+data.users.length);
-        $.each(data.users,function(index,user){
-            usersList += "<dt> Comment id:" + user.comment_id + "</dt>\n" +
-                         "<dd> Commentor user id:" + user.commentor_user_id + "\n" +
-                         "<dd> Commentor first_name:" + user.commentor_first_name + "\n" +
-                       	 "<dd> Commentor last_name:" + user.commentor_last_name + "\n" +
-                       	 "<dd> Commentor last_name:" + user.commentor_last_name + "\n" 
+        var recordsList = "<dl> Number of fetched records: " + data.records.length;        
+
+        $.each(data.records,function(index,record){
+            recordsList += "<dt> Comment id:" + record.comment_id + "</dt>\n" +
+                         "<dd> Comment:"    + record.comment    + "\n" +
+                         "<dd> Commentor record id:" + record.commentor_user_id + "\n" +
+                         "<dd> Commentor first_name:" + record.commentor_first_name + "\n" +
+                       	 "<dd> Commentor last_name:" + record.commentor_last_name + "\n" +
+                         "<dd> Team id: " + record.commentor_team_id + "\n" +
+                         "<dd> Team name: " + record.commentor_team_name + "\n" +
+                         "<dd> Is comment public? " + record.is_public + "\n" +
+                         "<dd> Recipient user id: " + record.recipient_user_id + "\n" +
+                         "<dd> Recipient first name: " + record.recipient_first_name + "\n" +
+                         "<dd> Recipient last name: " + record.recipient_last_name + "\n" +
+                         "<dd> Recipient email: " + record.recipient_email + "\n" +
+                         "<dd> Is the recipient a team leader? " + record.is_recipient_team_leader + "\n" +
+                         "<dd> Should we notify the recipient? " + record.notify_recipient + "\n" +
                          "</dd>";
         });
-        usersList += "</dl>";
-        $('#container').html(usersList);
+        recordsList += "</dl>";
+        $('#container').html(recordsList);
    
         $('time').html('Last Update:' + data.time);
       });

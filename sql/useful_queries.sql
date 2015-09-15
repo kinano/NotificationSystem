@@ -7,3 +7,7 @@ SELECT * FROM team_users;
 -- 
 
 call get_pending_notifications;
+
+truncate table user_comments;
+
+update user_comments set notification_sent_at = now() where id = 1;
